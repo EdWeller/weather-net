@@ -128,7 +128,7 @@ namespace WeatherNetTest
         public void GetSixteenDaysForecastByCityNameTest()
         {
             //Does not exist
-            var result = SixteenDaysForecast.GetByCityName("testcitytest", "testcitytest", 14);
+            var result = SixteenDaysForecast.GetByCityName("3AC946DD - 3344 - 423A - AD9A - 8D67B8BF01C5", "3AC946DD - 3344 - 423A - AD9A - 8D67B8BF01C5", 14);
             Assert.IsFalse(result.Success);
             Assert.IsNull(result.Items);
 

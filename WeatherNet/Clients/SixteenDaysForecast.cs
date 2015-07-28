@@ -144,8 +144,10 @@ namespace WeatherNet.Clients
             {
                 if (0 > days || days > 16)
                     return new Result<SixteenDaysForecastResult>(null, false, "Days must be a value between 1 and 16.");
+                var latString = lat.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var lonString = lon.ToString(System.Globalization.CultureInfo.InvariantCulture);
                 var response =
-                    ApiClient.GetResponse("/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=" + days);
+                    ApiClient.GetResponse("/forecast/daily?lat=" + latString + "&lon=" + lonString + "&cnt=" + days);
                 return Deserializer.GetWeatherDaily(response);
             }
             catch (Exception ex)
@@ -175,8 +177,11 @@ namespace WeatherNet.Clients
             {
                 if (0 > days || days > 16)
                     return new Result<SixteenDaysForecastResult>(null, false, "Days must be a value between 1 and 16.");
+
+                var latString = lat.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var lonString = lon.ToString(System.Globalization.CultureInfo.InvariantCulture);
                 var response =
-                    ApiClient.GetResponse("/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=" + days + "&lang=" +
+                    ApiClient.GetResponse("/forecast/daily?lat=" + latString + "&lon=" + lonString + "&cnt=" + days + "&lang=" +
                                           language + "&units=" + units);
                 return Deserializer.GetWeatherDaily(response);
             }
