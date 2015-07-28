@@ -108,7 +108,9 @@ namespace WeatherNet.Clients
         {
             try
             {
-                var response = ApiClient.GetResponse("/forecast?lat=" + lat + "&lon=" + lon);
+                var latString = lat.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var lonString = lon.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var response = ApiClient.GetResponse("/forecast?lat=" + latString + "&lon=" + lonString);
                 return Deserializer.GetWeatherForecast(response);
             }
             catch (Exception ex)
@@ -129,7 +131,9 @@ namespace WeatherNet.Clients
         {
             try
             {
-                var response = ApiClient.GetResponse("/forecast?lat=" + lat + "&lon=" + lon + "&lang=" + language + "&units=" + units);
+                var latString = lat.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var lonString = lon.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var response = ApiClient.GetResponse("/forecast?lat=" + latString + "&lon=" + lonString + "&lang=" + language + "&units=" + units);
                 return Deserializer.GetWeatherForecast(response);
             }
             catch (Exception ex)

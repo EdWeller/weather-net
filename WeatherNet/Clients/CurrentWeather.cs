@@ -89,7 +89,9 @@ namespace WeatherNet.Clients
         {
             try
             {
-                var o = ApiClient.GetResponse("/weather?lat=" + lat + "&lon=" + lon + "&lang=" + language + "&units=" + units);
+                var latString = lat.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var lonString = lon.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var o = ApiClient.GetResponse("/weather?lat=" + latString + "&lon=" + lonString + "&lang=" + language + "&units=" + units);
                 return Deserializer.GetWeatherCurrent(o);
             }
             catch (Exception ex)
