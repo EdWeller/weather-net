@@ -1,0 +1,10 @@
+*.dll
+*.pdb
+*.config
+*.cache
+*.pri
+bin/
+obj/
+packages/
+*.suo
+WeatherNetUWP/project.lock.json
