@@ -70,5 +70,10 @@ namespace WeatherNet.Model
         ///     Icon name.
         /// </summary>
         public String Icon { get; set; }
+
+        /// <summary>
+        ///     Weather Condition Id. Useful in integration with other packages.
+        /// </summary>
+        public int WeatherConditionId { get; set; }
     }
 }

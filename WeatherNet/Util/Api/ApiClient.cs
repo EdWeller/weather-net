@@ -10,17 +10,24 @@ using Newtonsoft.Json.Linq;
 
 namespace WeatherNet.Util.Api
 {
-    public static class ApiClient
+    /// <summary>
+    /// Raw Api client
+    /// </summary>
+    internal static class ApiClient
     {
-        
-        
-        public static JObject GetResponse(String queryString)
+        /// <summary>
+        /// Gets the response.
+        /// </summary>
+        /// <param name="queryString">The query string.</param>
+        /// <returns></returns>
+        public static JObject GetResponse(string queryString)
         {
             using (var client = new WebClient())
             {
                 var apiKey = ClientSettings.ApiKey;
                 var apiUrl = ClientSettings.ApiUrl;
                 Trace.WriteLine("<HTTP - GET - " + queryString + " >");
+
                 string url;
                 if (!string.IsNullOrEmpty(apiKey))
                     url = apiUrl + queryString + "&APPID=" + apiKey;
