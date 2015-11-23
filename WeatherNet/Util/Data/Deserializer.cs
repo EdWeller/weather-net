@@ -75,7 +75,7 @@ namespace WeatherNet.Util.Data
 
                 if (item["weather"] != null)
                 {
-                    weatherForecast.WeatherConditionId = Convert.ToInt32(response["weather"][0]["id"]);
+                    weatherForecast.WeatherConditionId = Convert.ToInt32(item["weather"][0]["id"]);
                     weatherForecast.Title = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(item["weather"][0]["main"])));
                     weatherForecast.Description = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(item["weather"][0]["description"])));
                     weatherForecast.Icon = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(item["weather"][0]["icon"])));
@@ -127,7 +127,7 @@ namespace WeatherNet.Util.Data
                 }
                 if (item["weather"] != null)
                 {
-                    weatherDaily.WeatherConditionId = Convert.ToInt32(response["weather"][0]["id"]);
+                    weatherDaily.WeatherConditionId = Convert.ToInt32(item["weather"][0]["id"]);
                     weatherDaily.Title = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(item["weather"][0]["main"])));
                     weatherDaily.Description = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(item["weather"][0]["description"])));
                     weatherDaily.Icon = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(item["weather"][0]["icon"])));
